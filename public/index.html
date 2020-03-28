@@ -36,7 +36,16 @@
   <body>
 
     <!-- Hidden overlay effect div -->
-    <div id="overlay" onclick="overlay_off()"></div>
+    <div id="overlay">
+
+      <!-- Hidden join/create classroom form -->
+      <form id = "classroom-form" class = "overlay-form">
+
+        <input type = "text" class = "classroom-text-input" placeholder = "Enter your class code...">
+
+      </form>
+
+    </div>
 
     <div id = "camera-container">
       <video id = "camera-stream" autoplay="true"></video>
