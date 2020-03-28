@@ -33,6 +33,8 @@ let student_name = "";
 
 if (privelage === "teacher") {
   student_name = "Teacher";
+  // Show the classroom code
+  document.getElementById("code-display").innerText = class_code;
 }
 
 // The speech stream on the firebase realtime database
@@ -44,7 +46,7 @@ speech_stream_ref.on("child_added", function(data) {
 });
 
 function show_captions (data) {
-  document.querySelector("#captions").innerText = data.val().text;
+  document.querySelector("#captions").innerText = data.val().name + ": " + data.val().text;
 }
 
 // Configure Speech Recognition event listeners
