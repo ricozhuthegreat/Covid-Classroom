@@ -79,3 +79,13 @@ async function init(e) {
 
 // Enable button onclick media device initialization
 document.querySelector("#present").addEventListener('click', e => init(e));
+
+
+// Overlay effect functions
+function overlay_on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function overlay_off() {
+  document.getElementById("overlay").style.display = "none";
+}

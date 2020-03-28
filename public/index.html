@@ -28,13 +28,16 @@
 
   <body>
 
+    <!-- Hidden overlay effect div -->
+    <div id="overlay" onclick="overlay_off()"></div>
+
     <div id = "camera-container">
       <video id = "camera-stream" autoplay="true"></video>
     </div>
 
     <div id = "right-container">
       <img id = "airplay-img" src = "src/assets/airplay-bg.png" />
-      <button id = "join-now" class = "ucla-blue">Join now</button>
+      <button id = "join-now" class = "ucla-blue" onclick = "overlay_on()">Join now</button>
       <button id = "present" class = "ucla-gold">Present</button>
       <p id = "captions"></p>
     </div>
