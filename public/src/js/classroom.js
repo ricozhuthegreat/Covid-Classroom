@@ -116,6 +116,7 @@ function handleError(error) {
 // This asyncronous function awaits for the user to approve the web stream element and then sets up the stream
 async function init(e) {
   try {
+    console.log("INIT");
     const stream = await navigator.mediaDevices.getUserMedia(media_constraints);
     handleSuccess(stream);
     e.target.disabled = true;

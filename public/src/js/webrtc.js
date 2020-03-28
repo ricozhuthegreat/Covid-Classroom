@@ -22,7 +22,7 @@ var sdpConstraints = {
 
 let room = localStorage["classcode"];
 
-var socket = io.connect('http://localhost:5000');
+var socket = io.connect();
 socket.emit('create or join', room);
 console.log('Attempted to create or  join room', room);
 
