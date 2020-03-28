@@ -77,9 +77,37 @@ async function init(e) {
   }
 }
 
-// Enable button onclick media device initialization
+// Enable button onclick media device initialization; e is the event the event listener proceeds the action on
 document.querySelector("#present").addEventListener('click', e => init(e));
 
+
+// Firebase User Interaction Response (POST/GET from Realtime Database)
+document.querySelector("#create").addEventListener('click', e => create_class(e));
+
+// The entire lowercase alphabet used in the random class code generation procedure
+const alphabet_low = "abcdefghijklmnopqrstuvwxyz";
+
+// This method generates a classroom code and then creates a new "classroom" in the Firebase server
+function create_class (e) {
+
+  let class_code = generate_code();
+
+}
+
+// This function returns a random string as a "class code"
+function generate_code () {
+
+  // Class code string to be appended
+  let code = "";
+
+  // Generate a random sequence of 8 alphabet characters
+  for (let i = 0; i<8; i++) {
+    code += alphabet_low.charAt(Math.floor(Math.random() * Math.floor(26)));
+  }
+
+  return code;
+
+}
 
 // Overlay effect functions
 function overlay_on() {
