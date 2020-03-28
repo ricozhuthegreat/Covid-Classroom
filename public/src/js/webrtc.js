@@ -1,3 +1,6 @@
+
+'use strict';
+
 var isChannelReady = false;
 var isInitiator = false;
 var isStarted = false;
@@ -23,8 +26,11 @@ var sdpConstraints = {
 let room = localStorage["classcode"];
 
 var socket = io.connect();
-socket.emit('create or join', room);
-console.log('Attempted to create or  join room', room);
+
+if (room !== '') {
+  socket.emit('create or join', room);
+  console.log('Attempted to create or  join room', room);
+}
 
 socket.on('created', function(room) {
   console.log('Created room ' + room);
@@ -35,7 +41,7 @@ socket.on('full', function(room) {
   console.log('Room ' + room + ' is full');
 });
 
-socket.on('join', function(room) {
+socket.on('join', function (room){
   console.log('Another peer made a request to join room ' + room);
   console.log('This peer is the initiator of room ' + room + '!');
   isChannelReady = true;
@@ -87,13 +93,13 @@ var localVideo = document.querySelector('#student-stream');
 var remoteVideo = document.querySelector('#teacher-stream');
 
 navigator.mediaDevices.getUserMedia({
-    audio: false,
-    video: true
-  })
-  .then(gotStream)
-  .catch(function(e) {
-    alert('getUserMedia() error: ' + e.name);
-  });
+  audio: true,
+  video: true
+})
+.then(gotStream)
+.catch(function(e) {
+  alert('getUserMedia() error: ' + e.name);
+});
 
 function gotStream(stream) {
   console.log('Adding local stream.');
