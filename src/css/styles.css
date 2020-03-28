@@ -1,0 +1,115 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500&display=swap');
+
+#camera-container {
+
+  /* Configure positioning */
+  position: absolute;
+  top: 10%;
+  left: 5%;
+
+  /* Set the frame size to be displayed  */
+  width: 100vh;
+  height: 80vh;
+
+  /* Add border radius */
+  border-radius: 15px;
+  overflow: hidden;
+
+}
+
+#camera-stream {
+
+  /* Set the frame size to be displayed  */
+  width: 110vh;
+  height: 90vh;
+
+  /* Remove top spacing */
+  margin-top: -5vh;
+
+  /* Default background color (when camera is offline/user has not enaled media device) */
+  background-color: #000;
+
+  /* Horizontal image flip */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+
+}
+
+#right-container {
+
+  /* Configure positioning */
+  position: absolute;
+  top: 60%;
+  left: 62.5%;
+
+}
+
+#airplay-img {
+
+  /* Configure positioning */
+  position: absolute;
+  top: -175%;
+  left: 37.5%;
+
+  width: 30%;
+
+}
+
+#join-now {
+
+  /* Configure button padding */
+  padding-left: 7.5vh;
+  padding-right: 7.5vh;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+
+  margin-right: 7.5vh;
+
+  /* Border management */
+  border: none;
+  border-radius: 30px;
+
+  /* Implement UCLA color palette */
+  color: #fff;
+
+  /* Text updates */
+  font-size: 3vh;
+
+}
+
+#join-now:hover {
+  background-color: #005587;
+}
+
+#present {
+
+  /* Configure button padding */
+  padding-left: 7.5vh;
+  padding-right: 7.5vh;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+
+  /* Border management */
+  border: none;
+  border-radius: 30px;
+
+  /* Implement UCLA color palette */
+  color: #fff;
+
+  /* Text updates */
+  font-size: 3vh;
+
+}
+
+#present:hover {
+  background-color: #FFC72C;
+}
+
+.ucla-blue {
+  background-color: #2774AE;
+}
+
+.ucla-gold {
+  background-color: #ffb300;
+}
