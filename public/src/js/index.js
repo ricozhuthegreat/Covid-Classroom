@@ -12,6 +12,8 @@ const recognition = new SpeechRecognition();
 recognition.continuous = true;
 recognition.lang = 'en-US';
 
+localStorage["first"] = "false";
+
 // The global firebase database object
 let db = firebase.database();
 
@@ -28,6 +30,7 @@ recognition.onresult = function(event) {
     speech_index++;
   }
 }
+
 // This method handles an successful approval; it continues setng up the rest of the stream
 function handleSuccess(stream) {
 
@@ -92,10 +95,10 @@ document.querySelector("#join").addEventListener("click", e => join_class(e));
 // The entire lowercase alphabet used in the random class code generation procedure
 const alphabet_low = "abcdefghijklmnopqrstuvwxyz";
 
-// The json object used for initial teacher classroom creation substitution
+// The json object used for initial teacher classroom creation substitution; the stream will contain chronological lists of text with associated users
 const teacher_key = {
   teacher: "Teacher",
-  students: {}
+  stream: {}
 };
 
 // This method generates a classroom code and then creates a new "classroom" in the Firebase server
@@ -125,12 +128,15 @@ function create_class (e) {
 function join_class (e) {
 
   // Get the classcode string the user entered
-  let class_code = document.querySelector("#classroom-text-input").value;
+  let class_code = document.querySelector("#class-code-input").value;
+
+  console.log(class_code);
 
   // Store the current classroom code in the web cache (local storage API)
   localStorage["classcode"] = class_code;
   // Store the privelage of the current user in the web cached
   localStorage["privelage"] = "student";
+  localStorage["first"] = "true";
 
   // Redirect the user to their classroom page
   window.location.href = "classroom.html";
