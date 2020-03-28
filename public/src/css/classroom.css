@@ -37,5 +37,20 @@
 }
 
 #student-stream {
-  
+
+  position: absolute;
+  top: 0%;
+  left: 60%;
+
+  width: 50vh;
+  height: 25vh;
+
+  border-radius: 30px;
+
+  background-color: #222;
+
+  /* Horizontal image flip */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+
 }
