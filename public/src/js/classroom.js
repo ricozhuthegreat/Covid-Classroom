@@ -129,7 +129,7 @@ async function init(e) {
 document.querySelector("#present").addEventListener("click", e => init(e));
 
 // Firebase responsive document elements
-document.querySelector("#join-class").addEventListener("click", e => join_class_as_student(e));
+document.getElementById("join-class").addEventListener("click", e => join_class_as_student(e));
 
 // This function adds the student formally to the classroom
 function join_class_as_student (e) {
