@@ -195,7 +195,17 @@
 
 #captions {
 
-  
+  position: absolute;
+  top: 20%;
+  left: 10%;
+
+  z-index: 7;
+
+  /* padding: 2.5px; */
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+
+  max-width: 100vh;
 
 }
 
