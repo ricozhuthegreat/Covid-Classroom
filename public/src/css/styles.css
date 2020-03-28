@@ -156,9 +156,17 @@
 }
 
 .classroom-text-input {
+  width: 50%;
   border: none;
-  border-radius: 30px;
   padding: 1vh;
+  transition: 0.3s;
+}
+
+.classroom-text-input:focus {
+  border: none;
+  border-bottom: 1px solid #ababab;
+  outline: none;
+  transition: 0.3s;
 }
 
 .ucla-blue {
