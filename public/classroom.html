@@ -34,6 +34,9 @@
 
     <!-- Javascript links, defer loaded after firebase initialization to satisfy database dependency -->
     <script defer src="src/js/classroom.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script defer src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script defer src="src/js/webrtc.js"></script>
 
   </head>
 
@@ -53,8 +56,8 @@
     </div>
 
     <div id = "camera-container">
-      <video id = "teacher-stream" autoplay muted></video>
-      <video id = "student-stream" autoplay></video>
+      <video id = "teacher-stream" autoplay playsinline></video>
+      <video id = "student-stream" autoplay playsinline></video>
     </div>
 
     <div id = "right-container">

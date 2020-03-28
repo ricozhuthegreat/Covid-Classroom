@@ -15,7 +15,7 @@ if (localStorage["first"] === "true") {
 }
 
 // HTML5 media contraints
-const constraints = { video: true, audio: true };
+const media_constraints = { video: true, audio: true };
 
 // Configure Speech-to-Text via the Mozilla/W3C scritped web speech API
 const recognition = new SpeechRecognition();
@@ -76,7 +76,7 @@ function handleSuccess(stream) {
   // VIDEO SETTINGS
 
   // The video media player stream element
-  const video = document.querySelector("#teacher-stream");
+  const video = document.querySelector("#student-stream");
   const videoTracks = stream.getVideoTracks();
   window.stream = stream;
   video.srcObject = stream;
@@ -116,7 +116,7 @@ function handleError(error) {
 // This asyncronous function awaits for the user to approve the web stream element and then sets up the stream
 async function init(e) {
   try {
-    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    const stream = await navigator.mediaDevices.getUserMedia(media_constraints);
     handleSuccess(stream);
     e.target.disabled = true;
   } catch (e) {

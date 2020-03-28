@@ -40,14 +40,12 @@
 
   position: absolute;
   top: 0%;
-  left: 60%;
+  left: 70%;
 
-  width: 50vh;
-  height: 25vh;
+  width: 30vh;
+  height: 20vh;
 
-  border-radius: 30px;
-
-  background-color: #222;
+  background-color: #000;
 
   /* Horizontal image flip */
   -webkit-transform: scaleX(-1);
