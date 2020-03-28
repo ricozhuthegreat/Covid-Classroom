@@ -85,9 +85,9 @@ async function init(e) {
 // Enable button onclick media device initialization; e is the event the event listener proceeds the action on
 document.querySelector("#present").addEventListener("click", e => init(e));
 
-
 // Firebase User Interaction Response (POST/GET from Realtime Database)
 document.querySelector("#create").addEventListener("click", e => create_class(e));
+document.querySelector("#join").addEventListener("click", e => join_class(e));
 
 // The entire lowercase alphabet used in the random class code generation procedure
 const alphabet_low = "abcdefghijklmnopqrstuvwxyz";
@@ -113,6 +113,24 @@ function create_class (e) {
 
   // Store the current classroom code in the web cache (local storage API)
   localStorage["classcode"] = class_code;
+  // Store the privelage of the current user in the web cached
+  localStorage["privelage"] = "teacher";
+
+  // Redirect the user to their classroom page
+  window.location.href = "classroom.html";
+
+}
+
+// This function joins the user to a selected classroom
+function join_class (e) {
+
+  // Get the classcode string the user entered
+  let class_code = document.querySelector("#classroom-text-input").value;
+
+  // Store the current classroom code in the web cache (local storage API)
+  localStorage["classcode"] = class_code;
+  // Store the privelage of the current user in the web cached
+  localStorage["privelage"] = "student";
 
   // Redirect the user to their classroom page
   window.location.href = "classroom.html";
