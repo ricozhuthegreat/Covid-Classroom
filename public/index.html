@@ -20,7 +20,7 @@
 
     <!-- Custom styles CSS Sheet -->
     <link rel="stylesheet" type="text/css" href="src/css/styles.css"></link>
-    <link rel="stylesheet" href="/css/main.css" />
+
     <!-- Firebase links -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -52,21 +52,15 @@
       </form>
 
     </div>
-    <div id="videos">
-      <video id="remoteVideo" autoplay></video>
-      <video id="localVideo" autoplay muted></video>
+
+    <div id = "camera-container">
+      <video id = "camera-stream" autoplay="true"></video>
     </div>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-    <script src="js/main.js"></script>
-
 
     <div id = "right-container">
       <img id = "airplay-img" src = "src/assets/ccicon.png" />
       <button id = "join-now" class = "ucla-blue" onclick = "overlay_on()">Join now</button>
       <button id = "present" class = "ucla-gold">Check Up</button>
-      <p id = "captions"></p>
     </div>
 
     <p id = "captions"></p>
