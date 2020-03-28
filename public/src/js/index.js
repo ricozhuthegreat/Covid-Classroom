@@ -9,23 +9,25 @@ const constraints = { video: true, audio: true };
 
 // Configure Speech-to-Text via the Mozilla/W3C scritped web speech API
 const recognition = new SpeechRecognition();
+recognition.continuous = true;
+recognition.lang = 'en-US';
 
 // The global firebase database object
 let db = firebase.database();
+
+// This variable tracks the extent of the conversation
+let speech_index = 0;
 
 // Configure Speech Recognition event listeners
 
 recognition.onresult = function(event) {
   if (event.results.length > 0) {
-    document.querySelector("#captions").innerText = event.results[0][0].transcript;
-    console.log(event.results[0][0].transcript);
+    document.querySelector("#captions").innerText = event.results[speech_index][0].transcript;
+    console.log(event.results[speech_index][0].transcript);
+    console.log("AUDIO DETECTED");
+    speech_index++;
   }
 }
-
-/*recognition.onspeechend = function() {
-  recognition.stop();
-}*/
-
 // This method handles an successful approval; it continues setng up the rest of the stream
 function handleSuccess(stream) {
 
