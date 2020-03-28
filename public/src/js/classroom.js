@@ -76,7 +76,7 @@ function handleSuccess(stream) {
   // VIDEO SETTINGS
 
   // The video media player stream element
-  const video = document.querySelector("#camera-stream");
+  const video = document.querySelector("#teacher-stream");
   const videoTracks = stream.getVideoTracks();
   window.stream = stream;
   video.srcObject = stream;
@@ -134,7 +134,6 @@ document.querySelector("#join-class").addEventListener("click", e => join_class_
 function join_class_as_student (e) {
   student_name = document.querySelector("#sname").value;
   localStorage["first"] = "false";
-  console.log("JOINED");
   overlay_off();
 }
 

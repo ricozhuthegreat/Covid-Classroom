@@ -20,6 +20,7 @@
 
     <!-- Custom styles CSS Sheet -->
     <link rel="stylesheet" type="text/css" href="src/css/styles.css"></link>
+    <link rel="stylesheet" type="text/css" href="src/css/classroom.css"></link>
 
     <!-- Firebase links -->
 
@@ -45,18 +46,18 @@
       <form id = "classroom-form" class = "overlay-form">
 
         <input type = "text" id = "sname" class = "classroom-text-input" placeholder = "Enter your name...">
-        <input type="submit" id = "join-class" class = "classroom-button-input ucla-gold" value="Join">
+        <input type = "button" id = "join-class" class = "classroom-button-input ucla-gold" value="Join">
 
       </form>
 
     </div>
 
     <div id = "camera-container">
-      <video id = "camera-stream" autoplay="true"></video>
+      <video id = "teacher-stream" autoplay muted></video>
+      <video id = "student-stream" autoplay></video>
     </div>
 
     <div id = "right-container">
-      <img id = "airplay-img" src = "src/assets/ccicon.png" />
       <button id = "present" class = "ucla-gold">Present</button>
       <p id = "captions"></p>
     </div>

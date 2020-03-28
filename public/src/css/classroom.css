@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500&display=swap');
+
+#camera-container {
+
+  /* Configure positioning */
+  position: absolute;
+  top: 10%;
+  left: 5%;
+
+  /* Set the frame size to be displayed  */
+  width: 100vh;
+  height: 80vh;
+
+  /* Add border radius */
+  border-radius: 15px;
+  overflow: hidden;
+
+}
+
+#teacher-stream {
+
+  /* Set the frame size to be displayed  */
+  width: 110vh;
+  height: 90vh;
+
+  /* Remove top spacing */
+  margin-top: -5vh;
+
+  /* Default background color (when camera is offline/user has not enaled media device) */
+  background-color: #000;
+
+  /* Horizontal image flip */
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+
+}
+
+#student-stream {
+  
+}
