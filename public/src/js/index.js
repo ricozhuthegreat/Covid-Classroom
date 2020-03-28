@@ -92,8 +92,8 @@ const alphabet_low = "abcdefghijklmnopqrstuvwxyz";
 
 // The json object used for initial teacher classroom creation substitution
 const teacher_key = {
-  name: "Teacher",
-  stream: {}
+  teacher: "Teacher",
+  students: {}
 };
 
 // This method generates a classroom code and then creates a new "classroom" in the Firebase server
@@ -108,6 +108,12 @@ function create_class (e) {
 
   // Update the actual firebase realtime database
   db.ref().child("classrooms").update(updates);
+
+  // Store the current classroom code in the web cache (local storage API)
+  localStorage["classcode"] = class_code;
+
+  // Redirect the user to their classroom page
+  window.location.href = "classroom.html";
 
 }
 

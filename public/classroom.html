@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <!-- Settings for UTF characterset/unicode and vh css functionality -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Hack the NorthEast (HTNE) title for the tab -->
+    <title>LA Hacks 2020</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="src/assets/airplay-gb.png" type="image/x-icon"></link>
+
+    <!-- CDN Links to jQuery and Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <!-- Custom styles CSS Sheet -->
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css"></link>
+
+    <!-- Firebase links -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+    <script defer src="src/js/firebase-init.js"></script>
+
+    <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+
+
+    <!-- Javascript links, defer loaded after firebase initialization to satisfy database dependency -->
+    <script defer src="src/js/index.js"></script>
+    <script defer src="src/js/classroom.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Hidden overlay effect div -->
+    <div id="overlay">
+
+      <!-- Hidden join/create classroom form -->
+      <form id = "classroom-form" class = "overlay-form">
+
+        <input type = "text" class = "classroom-text-input" placeholder = "Enter your classroom code...">
+
+        <input type="submit" id = "join" class = "classroom-button-input ucla-gold" value="Join">
+        <input type="button" id = "create" class = "classroom-button-input ucla-blue" value="Create">
+
+      </form>
+
+    </div>
+
+    <div id = "camera-container">
+      <video id = "camera-stream" autoplay="true"></video>
+    </div>
+
+    <div id = "right-container">
+      <img id = "airplay-img" src = "src/assets/ccicon.png" />
+      <button id = "join-now" class = "ucla-blue" onclick = "overlay_on()">Join now</button>
+      <button id = "present" class = "ucla-gold">Present</button>
+      <p id = "captions"></p>
+    </div>
+
+  </body>
+
+</html>
