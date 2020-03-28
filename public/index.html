@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <!-- Settings for UTF characterset/unicode and vh css functionality -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Hack the NorthEast (HTNE) title for the tab -->
+    <title>LA Hacks 2020</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="src/assets/airplay-gb.png" type="image/x-icon"></link>
+
+    <!-- CDN Links to jQuery and Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <!-- Custom styles CSS Sheet -->
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css"></link>
+
+    <!-- Javascript links -->
+    <script defer src="src/js/index.js"></script>
+
+  </head>
+
+  <body>
+
+    <div id = "camera-container">
+      <video id = "camera-stream" autoplay="true"></video>
+    </div>
+
+    <div id = "right-container">
+      <img id = "airplay-img" src = "src/assets/airplay-bg.png" />
+      <button id = "join-now" class = "ucla-blue">Join now</button>
+      <button id = "present" class = "ucla-gold">Present</button>
+      <p id = "captions"></p>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBxHGe9coGIJVbAIQxI-lftFOBhRQpKv7c",
+        authDomain: "covid-classroom.firebaseapp.com",
+        databaseURL: "https://covid-classroom.firebaseio.com",
+        projectId: "covid-classroom",
+        storageBucket: "covid-classroom.appspot.com",
+        messagingSenderId: "612240306575",
+        appId: "1:612240306575:web:22f0534b8ffd4cc6bd5bfa",
+        measurementId: "G-P7XYZFRE98"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+  </body>
+
+</html>
