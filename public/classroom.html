@@ -42,13 +42,25 @@
 
   <body>
 
+    <!-- Hidden overlay effect div -->
+    <div id="overlay">
+
+      <!-- Hidden join/create classroom form -->
+      <form id = "classroom-form" class = "overlay-form">
+
+        <input type = "text" id = "sname" class = "classroom-text-input" placeholder = "Enter your name...">
+        <input type = "button" id = "join-class" class = "classroom-button-input ucla-gold" value="Join">
+
+      </form>
+
+    </div>
+
     <div id = "camera-container">
       <video id = "teacher-stream" autoplay playsinline></video>
       <video id = "student-stream" autoplay playsinline></video>
     </div>
 
     <div id = "right-container">
-      <input type = "text" id = "sname" class = "classroom-text-input" placeholder = "Enter your name...">
       <button id = "present" class = "ucla-gold">Present</button>
     </div>
 

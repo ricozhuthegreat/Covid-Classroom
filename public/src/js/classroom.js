@@ -116,7 +116,6 @@ function handleError(error) {
 // This asyncronous function awaits for the user to approve the web stream element and then sets up the stream
 async function init(e) {
   try {
-    join_class_as_student(e);
     console.log("INIT");
     const stream = await navigator.mediaDevices.getUserMedia(media_constraints);
     handleSuccess(stream);
@@ -129,10 +128,14 @@ async function init(e) {
 // Enable button onclick media device initialization; e is the event the event listener proceeds the action on
 document.querySelector("#present").addEventListener("click", e => init(e));
 
+// Firebase responsive document elements
+document.querySelector("#join-class").addEventListener("click", e => join_class_as_student(e));
+
 // This function adds the student formally to the classroom
-function join_class_as_student () {
+function join_class_as_student (e) {
   student_name = document.querySelector("#sname").value;
   localStorage["first"] = "false";
+  overlay_off();
 }
 
 // Overlay effect functions
