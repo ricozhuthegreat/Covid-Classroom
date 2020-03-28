@@ -104,7 +104,7 @@ function create_class (e) {
 
   // Create a new entry (new "classroom") in the firebase realtime database under the new class code and push the code to it
   let updates = {};
-  updates["/classrooms/" + class_code] = teacher_key;
+  updates["/" + class_code] = teacher_key;
 
   // Update the actual firebase realtime database
   db.ref().child("classrooms").update(updates);
