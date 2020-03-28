@@ -22,7 +22,7 @@ var sdpConstraints = {
 
 let room = localStorage["classcode"];
 
-var socket = io.connect();
+var socket = io.connect('http://localhost:5000');
 socket.emit('create or join', room);
 console.log('Attempted to create or  join room', room);
 
@@ -87,7 +87,7 @@ var localVideo = document.querySelector('#student-stream');
 var remoteVideo = document.querySelector('#teacher-stream');
 
 navigator.mediaDevices.getUserMedia({
-    audio: true,
+    audio: false,
     video: true
   })
   .then(gotStream)

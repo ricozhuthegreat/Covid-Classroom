@@ -34,8 +34,8 @@
 
     <!-- Javascript links, defer loaded after firebase initialization to satisfy database dependency -->
     <script defer src="src/js/classroom.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script defer src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script defer src="src/js/webrtc.js"></script>
 
   </head>
@@ -49,7 +49,7 @@
       <form id = "classroom-form" class = "overlay-form">
 
         <input type = "text" id = "sname" class = "classroom-text-input" placeholder = "Enter your name...">
-        <input type = "button" id = "join-class" class = "classroom-button-input ucla-gold" value="Join">
+        <input type = "submit" id = "join-class" class = "classroom-button-input ucla-gold" value="Join">
 
       </form>
 
