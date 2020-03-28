@@ -10,6 +10,9 @@ const constraints = { video: true, audio: true };
 // Configure Speech-to-Text via the Mozilla/W3C scritped web speech API
 const recognition = new SpeechRecognition();
 
+// The global firebase database object
+let db = firebase.database();
+
 // Configure Speech Recognition event listeners
 
 recognition.onresult = function(event) {
@@ -78,24 +81,38 @@ async function init(e) {
 }
 
 // Enable button onclick media device initialization; e is the event the event listener proceeds the action on
-document.querySelector("#present").addEventListener('click', e => init(e));
+document.querySelector("#present").addEventListener("click", e => init(e));
 
 
 // Firebase User Interaction Response (POST/GET from Realtime Database)
-document.querySelector("#create").addEventListener('click', e => create_class(e));
+document.querySelector("#create").addEventListener("click", e => create_class(e));
 
 // The entire lowercase alphabet used in the random class code generation procedure
 const alphabet_low = "abcdefghijklmnopqrstuvwxyz";
 
+// The json object used for initial teacher classroom creation substitution
+const teacher_key = {
+  name: "Teacher",
+  stream: {}
+};
+
 // This method generates a classroom code and then creates a new "classroom" in the Firebase server
 function create_class (e) {
 
-  let class_code = generate_code();
+  // Generate a random classcode
+  let class_code = generate_classcode();
+
+  // Create a new entry (new "classroom") in the firebase realtime database under the new class code and push the code to it
+  let updates = {};
+  updates["/classrooms/" + class_code] = teacher_key;
+
+  // Update the actual firebase realtime database
+  db.ref().child("classrooms").update(updates);
 
 }
 
 // This function returns a random string as a "class code"
-function generate_code () {
+function generate_classcode () {
 
   // Class code string to be appended
   let code = "";

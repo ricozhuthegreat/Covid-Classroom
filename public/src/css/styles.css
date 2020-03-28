@@ -196,19 +196,23 @@
 .ucla-blue {
   background-color: #2774AE;
   color: white;
-  transition: 0.3s;
+  transition: 0.15s;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .ucla-blue:hover {
   background-color: #005587;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .ucla-gold {
   background-color: #ffb300;
   color: white;
-  transition: 0.3s;
+  transition: 0.15s;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .ucla-gold:hover {
   background-color: #FFC72C;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }

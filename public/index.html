@@ -21,16 +21,18 @@
     <!-- Custom styles CSS Sheet -->
     <link rel="stylesheet" type="text/css" href="src/css/styles.css"></link>
 
-    <!-- Javascript links -->
-    <script defer src="src/js/index.js"></script>
-
     <!-- Firebase links -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
 
     <script defer src="src/js/firebase-init.js"></script>
+
     <script defer src="https://www.gstatic.com/firebasejs/7.13.1/firebase-database.js"></script>
+
+
+    <!-- Javascript links, defer loaded after firebase initialization to satisfy database dependency -->
+    <script defer src="src/js/index.js"></script>
 
   </head>
 
