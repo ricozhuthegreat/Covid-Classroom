@@ -12,10 +12,24 @@ var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 var analyser = audioCtx.createAnalyser();
 
 analyser.fftSize = 2048;
+const bufferDimension = analyser.fftSize;
 var bufferLength = analyser.frequencyBinCount;
 var dataArray = new Uint8Array(bufferLength);
 
 analyser.getByteTimeDomainData(dataArray);
+
+voice_analysis();
+
+// Voice analysis
+function voice_analysis () {
+
+  // Update the rate by how frequently different peaks occur next to each other
+  rate = (bufferDimension/bufferLength)/bufferLength + 1.0;
+
+  // Update the pitch by checking the range/variance of volume peaks/valleys (maxima and minima)
+  pitch = 2 * (analyzer.maxDedibels - analyser.minDecibels);
+
+}
 
 console.log(dataArray);
 
