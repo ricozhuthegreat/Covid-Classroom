@@ -1,8 +1,12 @@
 
-// Import WEB APIs
+// Import WEB APIs for tts and stt
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+var synth = window.speechSynthesis;
+let pitch = 1.0;
+let rate = 1.0;
 
 // Retreive the cached variableS
 const class_code = localStorage["classcode"];
@@ -16,6 +20,7 @@ if (localStorage["first"] === "true") {
 
 // HTML5 media contraints
 const media_constraints = { video: true, audio: true };
+const media_constraints_rest = { video: true, audio: false };
 
 // Configure Speech-to-Text via the Mozilla/W3C scritped web speech API
 const recognition = new SpeechRecognition();
@@ -29,7 +34,7 @@ let db = firebase.database();
 let speech_index = 0;
 
 // The name of the student
-let student_name = "";
+let student_name = localStorage["student_name"];
 
 if (privelage === "teacher") {
   student_name = "Teacher";
@@ -43,10 +48,44 @@ let speech_stream_ref = firebase.database().ref("classrooms/" + class_code + "/s
 // Attach a stream listener to the database reference
 speech_stream_ref.on("child_added", function(data) {
   show_captions(data);
+  synthesis_captions(data);
 });
 
 function show_captions (data) {
   document.querySelector("#captions").innerText = data.val().name + ": " + data.val().text;
+}
+
+function synthesis_captions (data) {
+
+  if (synth.speaking) {
+    console.error('speechSynthesis.speaking');
+    return;
+  }
+
+  if (data.val().name === student_name) {
+    console.log("SAME SPEAKER");
+    return;
+  }
+
+  // Get the spoken sentence
+  let blurb = data.val().text;
+
+  let speech_synthesizer = new SpeechSynthesisUtterance(blurb);
+
+  speech_synthesizer.onend = function (event) {
+    console.log('SpeechSynthesisUtterance.onend');
+  }
+  speech_synthesizer.onerror = function (event) {
+    console.error('SpeechSynthesisUtterance.onerror');
+  }
+
+  speech_synthesizer.pitch = pitch;
+  speech_synthesizer.rate = rate;
+
+  let voice = "Google US English";
+
+  synth.speak(speech_synthesizer);
+
 }
 
 // Configure Speech Recognition event listeners
@@ -118,7 +157,6 @@ function handleError(error) {
 // This asyncronous function awaits for the user to approve the web stream element and then sets up the stream
 async function init(e) {
   try {
-    console.log("INIT");
     const stream = await navigator.mediaDevices.getUserMedia(media_constraints);
     handleSuccess(stream);
     e.target.disabled = true;
@@ -137,6 +175,7 @@ document.getElementById("join-class").addEventListener("click", e => join_class_
 function join_class_as_student (e) {
   student_name = document.querySelector("#sname").value;
   localStorage["first"] = "false";
+  localStorage["student_name"] = student_name;
   overlay_off();
 }
 
