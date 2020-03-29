@@ -29,7 +29,7 @@ function voice_analysis () {
   console.log("RATE:" + rate);
 
   // Update the pitch by checking the range/variance of volume peaks/valleys (maxima and minima)
-  pitch = 2 * (analyser.maxDedibels - analyser.minDecibels);
+  pitch = ((analyser.maxDedibels - analyser.minDecibels)/maxDedibels) * 2.0;
 
   console.log("PITCH:" + pitch);
 
