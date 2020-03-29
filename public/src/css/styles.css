@@ -43,7 +43,15 @@
   left: 60%;
 
 }
-
+#background {
+  position:absolute;
+  left: 60%;
+  width:35%;
+  height:105%;
+  object-fit: cover;
+  -webkit-filter: blur(7.5px); /* Safari 6.0 - 9.0 */
+  filter: blur(7.5px);
+}
 #airplay-img {
 
   /* Configure positioning */
@@ -169,7 +177,7 @@
   border: none;
   padding: 1vh;
   transition: 0.3s;
-  margin-right: 5%;
+  margin-right: 2%;
 }
 
 .classroom-text-input:focus {
@@ -182,12 +190,9 @@
 .classroom-button-input {
 
   /* Configure button padding and margins */
-  padding-left: 5vh;
-  padding-right: 5vh;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
+  padding: 2% 7%;
 
-  margin-left: 5%;
+  margin-left: 2%;
 
   /* Border management */
   border: none;
