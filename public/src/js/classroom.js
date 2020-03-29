@@ -33,7 +33,7 @@ let db = firebase.database();
 let speech_index = 0;
 
 // The name of the student
-let student_name = "";
+let student_name = localStorage["student_name"];
 
 if (privelage === "teacher") {
   student_name = "Teacher";
@@ -171,7 +171,9 @@ document.getElementById("join-class").addEventListener("click", e => join_class_
 // This function adds the student formally to the classroom
 function join_class_as_student (e) {
   student_name = document.querySelector("#sname").value;
+  console.log("STUDENT NAME: " + student_name);
   localStorage["first"] = "false";
+  localStorage["student_name"] = student_name;
   overlay_off();
 }
 
