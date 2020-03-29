@@ -20,6 +20,7 @@ if (localStorage["first"] === "true") {
 
 // HTML5 media contraints
 const media_constraints = { video: true, audio: true };
+const media_constraints_rest = { video: true, audio: false };
 
 // Configure Speech-to-Text via the Mozilla/W3C scritped web speech API
 const recognition = new SpeechRecognition();
@@ -59,6 +60,10 @@ function synthesis_captions (data) {
   if (synth.speaking) {
     console.error('speechSynthesis.speaking');
     return;
+  }
+
+  if (data.val().name === student_name) {
+    console.log("SAME SPEAKER");
   }
 
   // Get the spoken sentence
@@ -153,7 +158,6 @@ function handleError(error) {
 // This asyncronous function awaits for the user to approve the web stream element and then sets up the stream
 async function init(e) {
   try {
-    console.log("INIT");
     const stream = await navigator.mediaDevices.getUserMedia(media_constraints);
     handleSuccess(stream);
     e.target.disabled = true;
@@ -171,7 +175,6 @@ document.getElementById("join-class").addEventListener("click", e => join_class_
 // This function adds the student formally to the classroom
 function join_class_as_student (e) {
   student_name = document.querySelector("#sname").value;
-  console.log("STUDENT NAME: " + student_name);
   localStorage["first"] = "false";
   localStorage["student_name"] = student_name;
   overlay_off();
