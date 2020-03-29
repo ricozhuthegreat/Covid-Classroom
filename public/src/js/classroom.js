@@ -19,7 +19,7 @@ if (localStorage["first"] === "true") {
 }
 
 // HTML5 media contraints
-const media_constraints = { video: true, audio: false };
+const media_constraints = { video: true, audio: true };
 
 // Configure Speech-to-Text via the Mozilla/W3C scritped web speech API
 const recognition = new SpeechRecognition();
@@ -77,6 +77,8 @@ function synthesis_captions (data) {
   speech_synthesizer.rate = rate;
 
   let voice = "Google US English";
+
+  console.log("FIREBASE SPEAK");
 
   synth.speak(speech_synthesizer);
 
