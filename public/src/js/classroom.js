@@ -18,8 +18,6 @@ var dataArray = new Uint8Array(bufferLength);
 
 analyser.getByteTimeDomainData(dataArray);
 
-voice_analysis();
-
 // Voice analysis
 function voice_analysis () {
 
@@ -29,7 +27,7 @@ function voice_analysis () {
   console.log("RATE:" + rate);
 
   // Update the pitch by checking the range/variance of volume peaks/valleys (maxima and minima)
-  pitch = ((analyser.maxDedibels - analyser.minDecibels)/maxDecibels) * 2.0;
+  //pitch = ((analyser.maxDedibels - analyser.minDecibels)/analyser.maxDecibels) * 2.0;
 
   console.log("PITCH:" + pitch);
 
@@ -95,6 +93,8 @@ function synthesis_captions (data) {
     console.log("SAME SPEAKER");
     return;
   }
+
+  voice_analysis();
 
   // Get the spoken sentence
   let blurb = data.val().text;
