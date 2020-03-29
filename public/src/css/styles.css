@@ -33,7 +33,7 @@
 
 #background {
   position: absolute;
-  left: 60%;
+  left: 57.5%;
   width: 35%;
   height: 105%;
   object-fit: cover;
@@ -57,10 +57,7 @@
   width: 40%;
   text-align: center;
   /* Configure button padding */
-  padding-left: 2%;
-  padding-right: 2%;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding: 2%;
   margin-left: 4%;
   margin-right: 4%;
   /* Border management */
@@ -85,10 +82,7 @@
   width: 40%;
   text-align: center;
   /* Configure button padding */
-  padding-left: 2%;
-  padding-right: 2%;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding: 2%;
   margin-left: 4%;
   margin-right: 4%;
   /* Border management */
