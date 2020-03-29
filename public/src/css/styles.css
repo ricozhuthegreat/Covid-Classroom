@@ -34,7 +34,7 @@
 #background {
   position: absolute;
   left: 57.5%;
-  width: 35%;
+  width: 50%;
   height: 105%;
   object-fit: cover;
   -webkit-filter: blur(7.5px);
@@ -195,4 +195,8 @@
 .ucla-gold:hover {
   background-color: #FFC72C;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+html {
+  overflow: hidden;
 }
