@@ -64,6 +64,7 @@ function synthesis_captions (data) {
 
   if (data.val().name === student_name) {
     console.log("SAME SPEAKER");
+    return;
   }
 
   // Get the spoken sentence
@@ -82,8 +83,6 @@ function synthesis_captions (data) {
   speech_synthesizer.rate = rate;
 
   let voice = "Google US English";
-
-  console.log("FIREBASE SPEAK");
 
   synth.speak(speech_synthesizer);
 
