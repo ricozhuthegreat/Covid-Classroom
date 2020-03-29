@@ -26,8 +26,12 @@ function voice_analysis () {
   // Update the rate by how frequently different peaks occur next to each other
   rate = (bufferDimension/bufferLength)/bufferLength + 1.0;
 
+  console.log("RATE:" + rate);
+
   // Update the pitch by checking the range/variance of volume peaks/valleys (maxima and minima)
-  pitch = 2 * (analyzer.maxDedibels - analyser.minDecibels);
+  pitch = 2 * (analyser.maxDedibels - analyser.minDecibels);
+
+  console.log("PITCH:" + pitch);
 
 }
 
