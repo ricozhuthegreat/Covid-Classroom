@@ -8,6 +8,17 @@ var synth = window.speechSynthesis;
 let pitch = 1.0;
 let rate = 1.0;
 
+var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+var analyser = audioCtx.createAnalyser();
+
+analyser.fftSize = 2048;
+var bufferLength = analyser.frequencyBinCount;
+var dataArray = new Uint8Array(bufferLength);
+
+analyser.getByteTimeDomainData(dataArray);
+
+console.log(dataArray);
+
 // Retreive the cached variableS
 const class_code = localStorage["classcode"];
 const privelage = localStorage["privelage"];
