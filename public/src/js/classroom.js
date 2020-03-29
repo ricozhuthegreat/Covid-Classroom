@@ -1,8 +1,12 @@
 
-// Import WEB APIs
+// Import WEB APIs for tts and stt
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+var synth = window.speechSynthesis;
+let pitch = 1.0;
+let rate = 1.0;
 
 // Retreive the cached variableS
 const class_code = localStorage["classcode"];
@@ -15,7 +19,7 @@ if (localStorage["first"] === "true") {
 }
 
 // HTML5 media contraints
-const media_constraints = { video: true, audio: true };
+const media_constraints = { video: true, audio: false };
 
 // Configure Speech-to-Text via the Mozilla/W3C scritped web speech API
 const recognition = new SpeechRecognition();
@@ -43,10 +47,39 @@ let speech_stream_ref = firebase.database().ref("classrooms/" + class_code + "/s
 // Attach a stream listener to the database reference
 speech_stream_ref.on("child_added", function(data) {
   show_captions(data);
+  synthesis_captions(data);
 });
 
 function show_captions (data) {
   document.querySelector("#captions").innerText = data.val().name + ": " + data.val().text;
+}
+
+function synthesis_captions (data) {
+
+  if (synth.speaking) {
+    console.error('speechSynthesis.speaking');
+    return;
+  }
+
+  // Get the spoken sentence
+  let blurb = data.val().text;
+
+  let speech_synthesizer = new SpeechSynthesisUtterance(blurb);
+
+  speech_synthesizer.onend = function (event) {
+    console.log('SpeechSynthesisUtterance.onend');
+  }
+  speech_synthesizer.onerror = function (event) {
+    console.error('SpeechSynthesisUtterance.onerror');
+  }
+
+  speech_synthesizer.pitch = pitch;
+  speech_synthesizer.rate = rate;
+
+  let voice = "Google US English";
+
+  synth.speak(speech_synthesizer);
+
 }
 
 // Configure Speech Recognition event listeners
