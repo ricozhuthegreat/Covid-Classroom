@@ -11,10 +11,7 @@ var turnReady;
 
 var pcConfig = {
   'iceServers': [{
-
-    url: 'turn:numb.viagenie.ca',
-    credential: 'muazkh',
-    username: 'webrtc@live.com'
+    url:'stun:stunserver.org'
   }]
 };
 
