@@ -5,12 +5,12 @@
 
   /* Configure positioning */
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 5%;
 
   /* Set the frame size to be displayed  */
-  width: 100vh;
-  height: 80vh;
+  width: 50vw;
+  height: 70vh;
 
   /* Add border radius */
   border-radius: 15px;
@@ -21,11 +21,10 @@
 #camera-stream {
 
   /* Set the frame size to be displayed  */
-  width: 110vh;
-  height: 90vh;
+  width: 100%;
+  height: 100%;
 
-  /* Remove top spacing */
-  margin-top: -5vh;
+
 
   /* Default background color (when camera is offline/user has not enaled media device) */
   background-color: #000;
@@ -40,31 +39,35 @@
 
   /* Configure positioning */
   position: absolute;
-  top: 55%;
-  left: 62.5%;
+  top: 20%;
+  left: 60%;
 
 }
 
 #airplay-img {
 
   /* Configure positioning */
-  position: absolute;
-  top: -175%;
-  left: 35%;
+  position: relative;
 
-  width: 30%;
+  left: 25%;
 
+  width: 50%;
+  margin-bottom:10%;
 }
 
 #join-now {
-
+  overflow:hidden;
+  display: inline-block;
+  zoom: 1;
+  width: 40%;
+  text-align: center;
   /* Configure button padding */
-  padding-left: 7.5vh;
-  padding-right: 7.5vh;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
-
-  margin-right: 7.5vh;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
 
   /* Border management */
   border: none;
@@ -85,13 +88,19 @@
 }
 
 #present {
-
+  overflow:hidden;
+  display: inline-block;
+  zoom: 1;
+  width: 40%;
+  text-align: center;
   /* Configure button padding */
-  padding-left: 7.5vh;
-  padding-right: 7.5vh;
-  padding-top: 2.5vh;
-  padding-bottom: 2.5vh;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 
+  margin-left: 4%;
+  margin-right: 4%;
   /* Border management */
   border: none;
   border-radius: 30px;
@@ -125,7 +134,7 @@
 
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
-  cursor: pointer;
+
 
 }
 
